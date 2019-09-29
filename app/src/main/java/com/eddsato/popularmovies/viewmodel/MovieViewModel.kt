@@ -10,13 +10,7 @@ class MovieViewModel : ViewModel() {
 
     private val repository: MovieRepository = MovieRepository()
 
-    fun getMovies(): LiveData<MovieResponse> {
-        return repository.getMovies(SORT_TOP_RATED, AppConstants.API_KEY)
-
-    }
-
-    companion object {
-        const val SORT_POPULARITY = "popular"
-        const val SORT_TOP_RATED = "top_rated"
+    fun getMovies(sortBy: String): LiveData<MovieResponse> {
+        return repository.getMovies(sortBy, AppConstants.API_KEY)
     }
 }

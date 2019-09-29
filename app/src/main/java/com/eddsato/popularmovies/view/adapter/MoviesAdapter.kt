@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.eddsato.popularmovies.AppConstants
 import com.eddsato.popularmovies.R
 import com.eddsato.popularmovies.model.Movie
 import com.squareup.picasso.Picasso
@@ -30,11 +31,8 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesHolder>() {
 
     class MoviesHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(movie: Movie) = with(itemView) {
-            Picasso.with(itemView.context).load(POSTER_BASE_URL + movie.posterPath).into(iv_poster)
+            Picasso.with(itemView.context).load(AppConstants.POSTER_BASE_URL +
+                    movie.posterPath).into(iv_poster)
         }
-    }
-
-    companion object {
-        const val POSTER_BASE_URL = "http://image.tmdb.org/t/p/w342/"
     }
 }
