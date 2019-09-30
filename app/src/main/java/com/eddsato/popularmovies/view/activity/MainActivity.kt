@@ -2,6 +2,7 @@ package com.eddsato.popularmovies.view.activity
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
@@ -14,9 +15,9 @@ import com.eddsato.popularmovies.view.adapter.MoviesAdapter
 import com.eddsato.popularmovies.viewmodel.MovieViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClick {
 
-    private val adapter = MoviesAdapter()
+    private val adapter = MoviesAdapter(this)
     private lateinit var movieViewModel: MovieViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,8 +77,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onMovieClick(movie: Movie) {
+        val showMovieDetailIntent = Intent(this, MovieDetail::class.java)
+        showMovieDetailIntent.putExtra(INTENT_MOVIE_DETAIL, movie)
+        startActivity(showMovieDetailIntent)
+    }
+
     companion object {
         const val SORT_POPULARITY = "popular"
         const val SORT_TOP_RATED = "top_rated"
+        const val INTENT_MOVIE_DETAIL = "movie_detail"
     }
 }

@@ -1,10 +1,13 @@
 package com.eddsato.popularmovies.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 // 9888ffb41d50cb4a3a1e1a567a20f59a
 
+@Parcelize
 data class Movie (
     @SerializedName("title")
     @Expose
@@ -25,4 +28,4 @@ data class Movie (
     @SerializedName("release_date")
     @Expose
     var releaseDate: String
-)
+) : Parcelable
