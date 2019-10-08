@@ -9,6 +9,7 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import com.eddsato.popularmovies.R
+import com.eddsato.popularmovies.bind
 import com.eddsato.popularmovies.model.Movie
 import com.eddsato.popularmovies.view.GridLayoutItemDecoration
 import com.eddsato.popularmovies.view.adapter.MoviesAdapter
@@ -84,8 +85,8 @@ class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClick {
     }
 
     companion object {
-        const val SORT_POPULARITY = "popular"
-        const val SORT_TOP_RATED = "top_rated"
-        const val INTENT_MOVIE_DETAIL = "movie_detail"
+        private const val SORT_POPULARITY = "popular"
+        private const val SORT_TOP_RATED = "top_rated"
+        private const val INTENT_MOVIE_DETAIL = "movie_detail"
     }
 }

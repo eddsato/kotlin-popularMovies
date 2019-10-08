@@ -21,7 +21,7 @@ data class Movie (
     @Expose
     var overview: String,
 
-    @SerializedName("vote_avarage")
+    @SerializedName("vote_average")
     @Expose
     var voteAverage: Number,
 

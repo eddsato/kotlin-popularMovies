@@ -10,8 +10,8 @@ import com.eddsato.popularmovies.model.Movie
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.movies_list_item.view.*
 
-class MoviesAdapter(
-    private val listener: OnMovieClick) : RecyclerView.Adapter<MoviesAdapter.MoviesHolder>() {
+class MoviesAdapter(private val listener: OnMovieClick)
+    : RecyclerView.Adapter<MoviesAdapter.MoviesHolder>() {
 
     private var movies: List<Movie> = ArrayList()
 
