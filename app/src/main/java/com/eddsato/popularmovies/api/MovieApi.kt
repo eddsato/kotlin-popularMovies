@@ -11,5 +11,6 @@ interface MovieApi {
     @GET("movie/{sort}")
     fun getPopularMovies(
         @Path("sort") sort: String,
-        @Query("api_key") apiKey: String ): Call<MovieResponse>
+        @Query("api_key") apiKey: String
+    ): Call<MovieResponse>
 }

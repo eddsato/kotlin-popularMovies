@@ -5,10 +5,8 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
-// 9888ffb41d50cb4a3a1e1a567a20f59a
-
 @Parcelize
-data class Movie (
+data class Movie(
     @SerializedName("title")
     @Expose
     var title: String,
@@ -16,6 +14,10 @@ data class Movie (
     @SerializedName("poster_path")
     @Expose
     var posterPath: String,
+
+    @SerializedName("backdrop_path")
+    @Expose
+    var backdropPath: String,
 
     @SerializedName("overview")
     @Expose

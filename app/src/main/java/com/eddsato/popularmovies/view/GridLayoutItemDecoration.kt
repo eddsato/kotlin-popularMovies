@@ -11,7 +11,12 @@ class GridLayoutItemDecoration(space: Int) : RecyclerView.ItemDecoration() {
         this.space = space
     }
 
-    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+    override fun getItemOffsets(
+        outRect: Rect,
+        view: View,
+        parent: RecyclerView,
+        state: RecyclerView.State
+    ) {
         outRect.left = space
         outRect.right = space
         outRect.bottom = space

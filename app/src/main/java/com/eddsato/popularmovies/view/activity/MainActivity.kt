@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClick {
     private fun setupRecyclerView() {
         rv_movies.layoutManager = GridLayoutManager(this, 2)
         rv_movies.adapter = adapter
-        rv_movies.addItemDecoration(GridLayoutItemDecoration(8))
+        rv_movies.addItemDecoration(GridLayoutItemDecoration(6))
     }
 
     private fun loadPopularMovies() {

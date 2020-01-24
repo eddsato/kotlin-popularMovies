@@ -3,7 +3,7 @@ package com.eddsato.popularmovies.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class MovieResponse (
+data class MovieResponse(
     @SerializedName("page")
     @Expose
     var page: Int,
