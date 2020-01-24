@@ -28,4 +28,6 @@ data class Movie (
     @SerializedName("release_date")
     @Expose
     var releaseDate: String
+
+
 ) : Parcelable

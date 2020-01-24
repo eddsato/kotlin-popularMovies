@@ -9,7 +9,6 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import com.eddsato.popularmovies.R
-import com.eddsato.popularmovies.bind
 import com.eddsato.popularmovies.model.Movie
 import com.eddsato.popularmovies.view.GridLayoutItemDecoration
 import com.eddsato.popularmovies.view.adapter.MoviesAdapter
