@@ -31,5 +31,4 @@ data class Movie(
     @Expose
     var releaseDate: String
 
-
 ) : Parcelable

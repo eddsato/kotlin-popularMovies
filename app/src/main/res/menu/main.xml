@@ -16,10 +16,12 @@
             app:showAsAction="always">
 
         <menu>
-            <item android:id="@+id/action_popularity_filter"
-                    android:title="Popular"/>
-            <item android:id="@+id/action_top_rated_filter"
-                    android:title="Top Rated"/>
+            <item
+                    android:id="@+id/action_popularity_filter"
+                    android:title="Popular" />
+            <item
+                    android:id="@+id/action_top_rated_filter"
+                    android:title="Top Rated" />
         </menu>
     </item>
 
