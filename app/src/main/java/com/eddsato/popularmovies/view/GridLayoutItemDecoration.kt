@@ -1,7 +1,7 @@
 package com.eddsato.popularmovies.view
 
 import android.graphics.Rect
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 
 class GridLayoutItemDecoration(space: Int) : RecyclerView.ItemDecoration() {

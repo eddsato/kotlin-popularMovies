@@ -1,6 +1,6 @@
 package com.eddsato.popularmovies.view.activity
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.eddsato.popularmovies.AppConstants
 import com.eddsato.popularmovies.R
@@ -18,6 +18,10 @@ class MovieDetail : AppCompatActivity() {
         val bundle = intent.extras
         movie = bundle.getParcelable("movie_detail")
 
+        setupViewsValues()
+    }
+
+    private fun setupViewsValues() {
         movie_detail_title_tv.text = movie.title
         movie_detail_release_date_tv.text = movie.releaseDate
         movie_detail_vote_average_tv.text = movie.voteAverage.toString()

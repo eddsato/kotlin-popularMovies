@@ -1,6 +1,6 @@
 package com.eddsato.popularmovies.repository
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import com.eddsato.popularmovies.api.MovieApi
 import com.eddsato.popularmovies.api.RetrofitService
 import com.eddsato.popularmovies.model.MovieResponse

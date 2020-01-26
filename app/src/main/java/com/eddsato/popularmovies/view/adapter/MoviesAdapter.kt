@@ -1,6 +1,6 @@
 package com.eddsato.popularmovies.view.adapter
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +11,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.movies_list_item.view.*
 
 class MoviesAdapter(private val listener: OnMovieClick) :
-    RecyclerView.Adapter<MoviesAdapter.MoviesHolder>() {
+    androidx.recyclerview.widget.RecyclerView.Adapter<MoviesAdapter.MoviesHolder>() {
 
     private var movies: List<Movie> = ArrayList()
 
@@ -33,7 +33,7 @@ class MoviesAdapter(private val listener: OnMovieClick) :
         notifyDataSetChanged()
     }
 
-    class MoviesHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class MoviesHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         fun bind(movie: Movie, listener: OnMovieClick) = with(itemView) {
             Picasso.with(itemView.context)
                 .load(AppConstants.POSTER_BASE_URL + movie.backdropPath)

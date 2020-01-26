@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -69,4 +69,4 @@
             app:layout_constraintTop_toBottomOf="@id/movie_detail_overview_label_tv"
             tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id odio neque. Integer pretium, arcu vel ultricies luctus, lectus odio eleifend neque, facilisis semper diam odio at nunc. Quisque ac sem mi. Mauris eu odio volutpat, scelerisque felis at, egestas mi. Duis venenatis libero quis mattis ultrices. In hac habitasse platea dictumst. Nunc lobortis sed enim eu elementum. Nulla pharetra lobortis facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla facilisi. Nulla luctus aliquam sagittis. Vivamus faucibus euismod nisi." />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

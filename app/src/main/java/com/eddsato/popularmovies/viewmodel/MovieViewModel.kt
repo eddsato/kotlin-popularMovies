@@ -1,7 +1,7 @@
 package com.eddsato.popularmovies.viewmodel
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import com.eddsato.popularmovies.AppConstants
 import com.eddsato.popularmovies.model.MovieResponse
 import com.eddsato.popularmovies.repository.MovieRepository
