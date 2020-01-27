@@ -7,6 +7,7 @@ import com.eddsato.popularmovies.R
 import com.eddsato.popularmovies.model.Movie
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_movie_detail.*
+import kotlinx.android.synthetic.main.movies_list_item.view.*
 
 class MovieDetail : AppCompatActivity() {
     private lateinit var movie: Movie
@@ -26,6 +27,9 @@ class MovieDetail : AppCompatActivity() {
         movie_detail_release_date_tv.text = movie.releaseDate
         movie_detail_vote_average_tv.text = movie.voteAverage.toString()
         movie_detail_overview_tv.text = movie.overview
+        Picasso.with(this)
+            .load(AppConstants.POSTER_BASE_URL + movie.backdropPath)
+            .into(iv_backdrop_image)
         Picasso.with(this)
             .load(AppConstants.POSTER_BASE_URL + movie.posterPath)
             .into(movie_detail_poster_iv)
