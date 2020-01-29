@@ -6,15 +6,27 @@
         android:layout_width="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
+        <net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout
+                android:id="@+id/tb_detail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:contentScrim="?attr/colorPrimary"
+
                 app:expandedTitleGravity="top"
+                app:expandedTitleMarginTop="80dp"
+                app:expandedTitleMarginEnd="40dp"
+                app:expandedTitleMarginStart="16dp"
+                app:title="TESTE"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+            <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin" />
 
             <ImageView
                     android:id="@+id/iv_backdrop_image"
@@ -22,13 +34,25 @@
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
                     app:layout_collapseMode="parallax"
-                    app:layout_collapseParallaxMultiplier="0.5"/>
+                    app:layout_collapseParallaxMultiplier="0.5"
+                    android:tint="#73000000"
+                    tools:layout_height="300dp"/>
 
-            <androidx.appcompat.widget.Toolbar
+            <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    app:layout_collapseMode="pin"/>
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_gravity="bottom">
+
+                <TextView
+                        android:id="@+id/tv_release_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mar 14, 1972"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -106,4 +130,11 @@
                     tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id odio neque. Integer pretium, arcu vel ultricies luctus, lectus odio eleifend neque, facilisis semper diam odio at nunc. Quisque ac sem mi. Mauris eu odio volutpat, scelerisque felis at, egestas mi. Duis venenatis libero quis mattis ultrices. In hac habitasse platea dictumst. Nunc lobortis sed enim eu elementum. Nulla pharetra lobortis facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla facilisi. Nulla luctus aliquam sagittis. Vivamus faucibus euismod nisi." />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            app:layout_anchor="@id/appbar_layout"
+            app:layout_anchorGravity="bottom|right|end"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,5 +1,6 @@
 package com.eddsato.popularmovies.view.activity
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.eddsato.popularmovies.AppConstants
@@ -27,6 +28,9 @@ class MovieDetail : AppCompatActivity() {
         movie_detail_release_date_tv.text = movie.releaseDate
         movie_detail_vote_average_tv.text = movie.voteAverage.toString()
         movie_detail_overview_tv.text = movie.overview
+        tb_detail.title = movie.title
+        tb_detail.setExpandedTitleColor(Color.parseColor("#FFFFFF"))
+        tb_detail.setCollapsedTitleTextColor(Color.parseColor("#FFFFFF"))
         Picasso.with(this)
             .load(AppConstants.POSTER_BASE_URL + movie.backdropPath)
             .into(iv_backdrop_image)
