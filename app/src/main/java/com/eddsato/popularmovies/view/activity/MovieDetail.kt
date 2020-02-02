@@ -3,6 +3,7 @@ package com.eddsato.popularmovies.view.activity
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import com.eddsato.popularmovies.AppConstants
 import com.eddsato.popularmovies.R
 import com.eddsato.popularmovies.model.Movie
@@ -16,6 +17,9 @@ class MovieDetail : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_detail)
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val bundle = intent.extras
         movie = bundle.getParcelable("movie_detail")
@@ -37,5 +41,13 @@ class MovieDetail : AppCompatActivity() {
         Picasso.with(this)
             .load(AppConstants.POSTER_BASE_URL + movie.posterPath)
             .into(movie_detail_poster_iv)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == android.R.id.home) {
+            //to reverse the scene transition animation
+            supportFinishAfterTransition()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

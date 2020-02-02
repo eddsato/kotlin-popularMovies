@@ -5,18 +5,20 @@ import androidx.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.ImageView
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.eddsato.popularmovies.R
 import com.eddsato.popularmovies.model.Movie
-import com.eddsato.popularmovies.view.GridLayoutItemDecoration
 import com.eddsato.popularmovies.view.adapter.MoviesAdapter
 import com.eddsato.popularmovies.viewmodel.MovieViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClick {
-
     private val adapter = MoviesAdapter(this)
     private lateinit var movieViewModel: MovieViewModel
 
@@ -29,9 +31,8 @@ class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClick {
     }
 
     private fun setupRecyclerView() {
-        rv_movies.layoutManager = GridLayoutManager(this, 2)
+        rv_movies.layoutManager = LinearLayoutManager(this)
         rv_movies.adapter = adapter
-        rv_movies.addItemDecoration(GridLayoutItemDecoration(6))
     }
 
     private fun loadPopularMovies() {
@@ -77,10 +78,13 @@ class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClick {
         }
     }
 
-    override fun onMovieClick(movie: Movie) {
+    override fun onMovieClick(movie: Movie, imageView: ImageView) {
         val showMovieDetailIntent = Intent(this, MovieDetail::class.java)
+        val backdropImagePair = Pair.create<View, String>(imageView, getString(R.string.backdrop_transition))
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, backdropImagePair)
+
         showMovieDetailIntent.putExtra(INTENT_MOVIE_DETAIL, movie)
-        startActivity(showMovieDetailIntent)
+        startActivity(showMovieDetailIntent, options.toBundle())
     }
 
     companion object {

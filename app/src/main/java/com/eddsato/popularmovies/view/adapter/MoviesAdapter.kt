@@ -4,14 +4,16 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import com.eddsato.popularmovies.AppConstants
 import com.eddsato.popularmovies.R
 import com.eddsato.popularmovies.model.Movie
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_movie_detail.view.*
 import kotlinx.android.synthetic.main.movies_list_item.view.*
 
 class MoviesAdapter(private val listener: OnMovieClick) :
-    androidx.recyclerview.widget.RecyclerView.Adapter<MoviesAdapter.MoviesHolder>() {
+    RecyclerView.Adapter<MoviesAdapter.MoviesHolder>() {
 
     private var movies: List<Movie> = ArrayList()
 
@@ -25,7 +27,11 @@ class MoviesAdapter(private val listener: OnMovieClick) :
     override fun getItemCount(): Int = movies.size
 
     override fun onBindViewHolder(holder: MoviesHolder, position: Int) {
-        holder.bind(movies[position], listener)
+        val item = movies.get(position)
+        holder.bind(item)
+        holder.itemView.setOnClickListener {
+            listener.onMovieClick(item, holder.itemView.iv_poster)
+        }
     }
 
     fun swapMovies(movies: List<Movie>) {
@@ -34,20 +40,15 @@ class MoviesAdapter(private val listener: OnMovieClick) :
     }
 
     class MoviesHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
-        fun bind(movie: Movie, listener: OnMovieClick) = with(itemView) {
+        fun bind(movie: Movie) = with(itemView) {
             Picasso.with(itemView.context)
                 .load(AppConstants.POSTER_BASE_URL + movie.backdropPath)
                 .into(iv_poster)
-
             tv_movie_title.text = movie.title
-
-            itemView.setOnClickListener {
-                listener.onMovieClick(movie)
-            }
         }
     }
 
     interface OnMovieClick {
-        fun onMovieClick(movie: Movie)
+        fun onMovieClick(movie: Movie, imageView: ImageView)
     }
 }
