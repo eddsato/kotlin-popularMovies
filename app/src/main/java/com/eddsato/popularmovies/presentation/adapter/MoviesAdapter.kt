@@ -1,4 +1,4 @@
-package com.eddsato.popularmovies.view.adapter
+package com.eddsato.popularmovies.presentation.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,7 +9,6 @@ import com.eddsato.popularmovies.AppConstants
 import com.eddsato.popularmovies.R
 import com.eddsato.popularmovies.model.Movie
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_movie_detail.view.*
 import kotlinx.android.synthetic.main.movies_list_item.view.*
 
 class MoviesAdapter(private val listener: OnMovieClick) :

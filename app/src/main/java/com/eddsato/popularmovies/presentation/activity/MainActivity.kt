@@ -1,4 +1,4 @@
-package com.eddsato.popularmovies.view.activity
+package com.eddsato.popularmovies.presentation.activity
 
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -14,8 +14,8 @@ import androidx.core.util.Pair
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eddsato.popularmovies.R
 import com.eddsato.popularmovies.model.Movie
-import com.eddsato.popularmovies.view.adapter.MoviesAdapter
-import com.eddsato.popularmovies.viewmodel.MovieViewModel
+import com.eddsato.popularmovies.presentation.adapter.MoviesAdapter
+import com.eddsato.popularmovies.presentation.viewmodel.MovieViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClick {
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClick {
     }
 
     override fun onMovieClick(movie: Movie, imageView: ImageView) {
-        val showMovieDetailIntent = Intent(this, MovieDetail::class.java)
+        val showMovieDetailIntent = Intent(this, MovieDetailActivity::class.java)
         val backdropImagePair = Pair.create<View, String>(imageView, getString(R.string.backdrop_transition))
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, backdropImagePair)
 

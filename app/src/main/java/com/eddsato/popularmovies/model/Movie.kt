@@ -11,24 +11,11 @@ data class Movie(
     @Expose
     var title: String,
 
-    @SerializedName("poster_path")
-    @Expose
-    var posterPath: String,
-
     @SerializedName("backdrop_path")
     @Expose
     var backdropPath: String,
 
-    @SerializedName("overview")
+    @SerializedName("id")
     @Expose
-    var overview: String,
-
-    @SerializedName("vote_average")
-    @Expose
-    var voteAverage: Number,
-
-    @SerializedName("release_date")
-    @Expose
-    var releaseDate: String
-
+    var movieId: Int
 ) : Parcelable

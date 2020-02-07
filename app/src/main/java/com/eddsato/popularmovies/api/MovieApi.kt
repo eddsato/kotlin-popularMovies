@@ -1,8 +1,6 @@
 package com.eddsato.popularmovies.api
 
-import com.eddsato.popularmovies.model.MovieResponse
-import com.eddsato.popularmovies.model.ReviewsResponse
-import com.eddsato.popularmovies.model.TrailersResponse
+import com.eddsato.popularmovies.model.*
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -14,7 +12,7 @@ interface MovieApi {
     fun getPopularMovies(
         @Path("sort") sort: String,
         @Query("api_key") apiKey: String
-    ): Call<MovieResponse>
+    ): Call<MoviesResponse>
 
     @GET("movie/{movie_id}/reviews")
     fun getMovieReviews(
@@ -27,4 +25,10 @@ interface MovieApi {
         @Path("movie_id") movieId: String,
         @Query("api_key") apiKey: String
     ): Call<TrailersResponse>
+
+    @GET("movie/{movie_id}")
+    fun getMovieDetails(
+        @Path("movie_id") movieId: Int,
+        @Query("api_key") apiKey: String
+    ): Call<MovieDetail>
 }
