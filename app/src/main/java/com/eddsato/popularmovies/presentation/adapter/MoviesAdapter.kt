@@ -38,7 +38,7 @@ class MoviesAdapter(private val listener: OnMovieClick) :
         notifyDataSetChanged()
     }
 
-    class MoviesHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
+    class MoviesHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(movie: Movie) = with(itemView) {
             Picasso.with(itemView.context)
                 .load(AppConstants.POSTER_BASE_URL + movie.backdropPath)

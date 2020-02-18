@@ -1,5 +1,7 @@
 package com.eddsato.popularmovies.presentation.activity
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,6 +18,16 @@ import kotlinx.android.synthetic.main.activity_movie_detail.*
 class MovieDetailActivity : AppCompatActivity() {
     private lateinit var movie: Movie
     private lateinit var movieDetailViewModel: MovieDetailViewModel
+
+    companion object {
+
+
+        fun getLaunchIntent(context: Context): Intent {
+            Intent(context, MovieDetailActivity::class.java).apply {
+                putExtra()
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
