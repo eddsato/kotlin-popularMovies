@@ -19,16 +19,6 @@ class MovieDetailActivity : AppCompatActivity() {
     private lateinit var movie: Movie
     private lateinit var movieDetailViewModel: MovieDetailViewModel
 
-    companion object {
-
-
-        fun getLaunchIntent(context: Context): Intent {
-            Intent(context, MovieDetailActivity::class.java).apply {
-                putExtra()
-            }
-        }
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_detail)

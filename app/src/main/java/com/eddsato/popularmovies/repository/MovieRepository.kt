@@ -31,6 +31,7 @@ class MovieRepository {
                 }
             }
         })
+
         return moviesData
     }
 
@@ -54,6 +55,7 @@ class MovieRepository {
             }
 
         })
+
         return movieReviewsData
     }
 
@@ -76,6 +78,7 @@ class MovieRepository {
                 }
             }
         })
+
         return movieTrailersData
     }
 
@@ -95,6 +98,7 @@ class MovieRepository {
                 }
             }
         })
+
         return movieDetailData
     }
 }
