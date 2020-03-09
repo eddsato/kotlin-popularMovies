@@ -7,10 +7,12 @@ import com.eddsato.popularmovies.model.MovieDetail
 import com.eddsato.popularmovies.model.ReviewsResponse
 import com.eddsato.popularmovies.model.TrailersResponse
 import com.eddsato.popularmovies.repository.MovieRepository
+import org.koin.standalone.KoinComponent
+import org.koin.standalone.inject
 
-class MovieDetailViewModel : ViewModel() {
+class MovieDetailViewModel : ViewModel(), KoinComponent {
 
-    private val repository: MovieRepository = MovieRepository()
+    private val repository: MovieRepository by inject()
 
     fun getReviews(movieId: String): LiveData<ReviewsResponse> {
         return repository.getReviews(movieId, AppConstants.API_KEY)

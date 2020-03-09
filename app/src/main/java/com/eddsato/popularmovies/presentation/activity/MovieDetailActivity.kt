@@ -14,10 +14,11 @@ import com.eddsato.popularmovies.model.Movie
 import com.eddsato.popularmovies.presentation.viewmodel.MovieDetailViewModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_movie_detail.*
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class MovieDetailActivity : AppCompatActivity() {
     private lateinit var movie: Movie
-    private lateinit var movieDetailViewModel: MovieDetailViewModel
+    private val movieDetailViewModel: MovieDetailViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +35,6 @@ class MovieDetailActivity : AppCompatActivity() {
     }
 
     private fun loadMovieDetail() {
-        movieDetailViewModel = ViewModelProviders.of(this).get(MovieDetailViewModel::class.java)
         movieDetailViewModel.getMovieDetail(movie.movieId).observe(this, Observer {
             it?.let {
                 movie_detail_title_tv.text = movie.title

@@ -39,7 +39,7 @@ android {
 }
 
 dependencies {
-    def retrofitVersion = "2.5.0"
+    def retrofitVersion = "2.6.0"
     def picassoVersion = "2.5.2"
     def koinVersion = "1.0.1"
 

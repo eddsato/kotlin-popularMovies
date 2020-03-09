@@ -17,10 +17,11 @@ import com.eddsato.popularmovies.model.Movie
 import com.eddsato.popularmovies.presentation.adapter.MoviesAdapter
 import com.eddsato.popularmovies.presentation.viewmodel.MovieViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClick {
     private val adapter = MoviesAdapter(this)
-    private lateinit var movieViewModel: MovieViewModel
+    private val movieViewModel: MovieViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +37,6 @@ class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClick {
     }
 
     private fun loadPopularMovies() {
-        movieViewModel = ViewModelProviders.of(this).get(MovieViewModel::class.java)
         movieViewModel.getMovies(SORT_POPULARITY).observe(this, Observer {
             it?.let {
                 var movieList: List<Movie> = it.result
@@ -46,7 +46,6 @@ class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClick {
     }
 
     private fun loadTopRatedMovies() {
-        movieViewModel = ViewModelProviders.of(this).get(MovieViewModel::class.java)
         movieViewModel.getMovies(SORT_TOP_RATED).observe(this, Observer {
             it?.let {
                 var movieList: List<Movie> = it.result
